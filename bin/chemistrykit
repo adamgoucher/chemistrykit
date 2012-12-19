@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'chemistrykit/cli'
+
+ChemistryKit::CLI.start
