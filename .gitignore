@@ -1,6 +1,13 @@
+# Bundler/Rubygems
 *.gem
-vendor/bundle
 .bundle
+pkg/*
+tags
+Gemfile.lock
+test/tmp/
+
+# Installed gems
+vendor/bundle
 
 # Temp Files
 *.swp
