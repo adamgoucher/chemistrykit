@@ -1,9 +1,9 @@
 module ChemistryKit
- describe 'chemistrykit executable' do
-   it 'returns non-zero exit status when passed unrecognized options' do
-     true
-     # ckit '--invalid_argument', :exitstatus => true
-     # expext(exitstatus.to_not be_zero
+ describe CLI do
+   it "should return new project" do
+     cli = ChemistryKit::CLI.start
+     new = CLI.new
+     new = "new"
    end
  end
 end

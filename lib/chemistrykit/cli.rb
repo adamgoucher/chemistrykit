@@ -1,10 +1,10 @@
 require "thor"
 
-class MyCLI < Thor
-  desc "ckit new <project_name>", "Creates a new ChemistryKit project"
-  def new(project)
-    puts "Yeah, your ready to rock out #{project}!"
+module ChemistryKit
+  class CLI < Thor
+    desc "ckit new <project_name>", "Creates a new ChemistryKit project"
+    def new
+      puts "new"
+    end
   end
 end
-
-MyCLI.start(ARGV)
