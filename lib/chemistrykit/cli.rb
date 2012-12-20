@@ -2,39 +2,47 @@ require "thor"
 
 module ChemistryKit
   class CLI < Thor
-    include Thor:Actions
 
-    def self.source_root
-      File.dirname(__FILE__)
-    end
+    # def self.source_root
+    #   File.dirname(__FILE__)
+    # end
 
-    desc "ckit new <project_name>", "Creates a new ChemistryKit project"
-    long_desc <<-LONGDESC
-      'ckit new' will generate the a new ChemistryKit project.
+    desc "new [PROJECT_NAME]", "Creates a new ChemistryKit project"
+    # method_options :force => :boolean
+    # long_desc <<-LONGDESC
+    #   'ckit new' will generate the a new ChemistryKit project.
 
-      You must specifiy the location and mame of the new project.
+    #   You must specifiy the location and mame of the new project.
 
-      Examples:
-        ckit new cool-beans
-        ckit new .
-    LONGDESC
-
+    #   Examples:
+    #     ckit new cool-beans
+    #     ckit new .
+    # LONGDESC
     def new(name)
-      puts "new project"
+      puts "Creating a new ChemistryKit"
+
+      Dir["../lib/chemistrykit/test/examples/*"].each do |source|
+        destination = "../lib/chemistrykit/test/#{File.basename(source)}"
+        # FileUtils.rm(destination) if options[:force] && File.exist?(destination)
+        if File.exist?(destination)
+          puts "Skipping #{destination} because it already exists"
+        else
+          puts "Generating #{destination}"
+          FileUtils.cp(source, destination)
+        end
+      end
     end
 
-    desc "ckit generate GENERATOR [ARGS]" "Generates boiler plate files"
+    desc "generate GENERATOR [ARGS]", "Generates boiler plate files"
     long_desc <<-LONGDESC
       Please choose a generator below.
 
       ckit:
         page
         script
-
     LONGDESC
-
-    def genreate(name)
-      puts "generate"
+    def generate(name)
+      puts "generating stuff"
     end
 
   end
