@@ -2,27 +2,29 @@ require "thor"
 
 module ChemistryKit
   class CLI < Thor
+    include Thor::Actions
 
-    # def self.source_root
-    #   File.dirname(__FILE__)
-    # end
+    def self.source_root
+      File.dirname(__FILE__)
+    end
 
     desc "new [PROJECT_NAME]", "Creates a new ChemistryKit project"
-    # method_options :force => :boolean
-    # long_desc <<-LONGDESC
-    #   'ckit new' will generate the a new ChemistryKit project.
+      # method_options :force => :boolean
+      long_desc <<-LONGDESC
+        'ckit new' will generate the a new ChemistryKit project.
 
-    #   You must specifiy the location and mame of the new project.
+        You must specifiy the location and mame of the new project.
 
-    #   Examples:
-    #     ckit new cool-beans
-    #     ckit new .
-    # LONGDESC
+        Examples:
+          ckit new cool-beans
+          ckit new .
+      LONGDESC
     def new(name)
-      puts "Creating a new ChemistryKit"
-
-      Dir["../lib/chemistrykit/test/examples/*"].each do |source|
-        destination = "../lib/chemistrykit/test/#{File.basename(source)}"
+      puts "made it so far"
+      Dir["templates/*"].each do |source|
+        puts "about to copy the destination"
+        destination = "templates/example/#{File.basename(source)}"
+        puts "new #{name}"
         # FileUtils.rm(destination) if options[:force] && File.exist?(destination)
         if File.exist?(destination)
           puts "Skipping #{destination} because it already exists"
