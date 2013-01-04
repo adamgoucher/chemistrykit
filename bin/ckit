@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require "rubygems"
+require "rubygems" # Allows for Ruby versions older than 1.9.3
 require File.expand_path('../../lib/chemistrykit', __FILE__)
 require 'chemistrykit/cli'
 
