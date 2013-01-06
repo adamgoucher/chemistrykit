@@ -4,6 +4,8 @@ module ChemistryKit
   class CLI < Thor
     include Thor::Actions
 
+    default_task :brew
+
     def self.source_root
       File.join(File.dirname(__FILE__), '..')
     end
@@ -52,5 +54,12 @@ module ChemistryKit
       puts "generating stuff"
     end
 
+    desc "brew [ARGS]", "Run the Chemistry kit"
+    long_desc <<-LONGDESC
+      Runs the Chemistry kit
+    LONGDESC
+    def brew
+      puts 'in'
+    end
   end
 end
