@@ -1,4 +1,4 @@
-require 'thor'
+require 'thor/group'
 
 module ChemistryKit
   module CLI
@@ -22,7 +22,6 @@ module ChemistryKit
         self.name = name
         template('templates/spec.rb.tt', "spec/#{name}.rb")
       end
-
     end
   end
 end
