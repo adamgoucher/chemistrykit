@@ -1,51 +1,60 @@
 require "thor"
+require 'chemistrykit/generators'
 
 module ChemistryKit
-  class CLI < Thor
-    include Thor::Actions
+  module CLI
+    class CKitCLI < Thor
+      include Thor::Actions
 
-    def self.source_root
-      File.dirname(__FILE__)
-    end
+      default_task :brew
 
-    desc "new [PROJECT_NAME]", "Creates a new ChemistryKit project"
-      # method_options :force => :boolean
-      long_desc <<-LONGDESC
-        'ckit new' will generate the a new ChemistryKit project.
+      register(ChemistryKit::CLI::Generate, 'generate', 'generate [GENERATOR] [NAME]', 'generates something')
 
-        You must specifiy the location and mame of the new project.
+      def self.source_root
+        File.join(File.dirname(__FILE__), '..')
+      end
 
-        Examples:
-          ckit new cool-beans
-          ckit new .
-      LONGDESC
-    def new(name)
-      puts "made it so far"
-      Dir["templates/*"].each do |source|
-        puts "about to copy the destination"
-        destination = "templates/example/#{File.basename(source)}"
-        puts "new #{name}"
-        # FileUtils.rm(destination) if options[:force] && File.exist?(destination)
-        if File.exist?(destination)
-          puts "Skipping #{destination} because it already exists"
+      desc "new [PROJECT_NAME]", "Creates a new ChemistryKit project"
+        # method_options :force => :boolean
+        long_desc <<-LONGDESC
+          'ckit new' will generate the a new ChemistryKit project.
+
+          You must specifiy the location and name of the new project.
+
+          Examples:
+            ckit new cool-beans
+            ckit new .
+        LONGDESC
+      def new(name)
+        if name == "."
+          destination_root = Dir.getwd
         else
-          puts "Generating #{destination}"
-          FileUtils.cp(source, destination)
+          Dir.mkdir(name)
+          destination_root = File.join(Dir.getwd, name)
         end
+
+        Dir.glob(File.join(File.join(CKitCLI.source_root, "templates", "chemistrykit"), "**/*")).each do |file|
+          path_length = File.join(CKitCLI.source_root, "templates", "chemistrykit").length + 1
+          destination = File.join(destination_root, file[path_length .. -1])
+          if not File.exists?(destination)
+            if File.directory?(file)
+              Dir.mkdir(destination)
+            else
+              FileUtils.cp(file, destination)
+            end
+          end
+        end
+        Dir.mkdir(File.join(destination_root, 'logs'))
+        FileUtils.makedirs(File.join(destination_root, 'lib', 'pages'))
+      end
+
+      desc "brew [ARGS]", "Run the Chemistry kit"
+      long_desc <<-LONGDESC
+        Runs the Chemistry kit
+      LONGDESC
+      def brew
+        puts 'in'
       end
     end
-
-    desc "generate GENERATOR [ARGS]", "Generates boiler plate files"
-    long_desc <<-LONGDESC
-      Please choose a generator below.
-
-      ckit:
-        page
-        script
-    LONGDESC
-    def generate(name)
-      puts "generating stuff"
-    end
-
   end
 end
