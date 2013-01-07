@@ -33,8 +33,8 @@ module ChemistryKit
           destination_root = File.join(Dir.getwd, name)
         end
 
-        Dir.glob(File.join(File.join(CLI.source_root, "templates", "chemistrykit"), "**/*")).each do |file|
-          path_length = File.join(CLI.source_root, "templates", "chemistrykit").length + 1
+        Dir.glob(File.join(File.join(CKitCLI.source_root, "templates", "chemistrykit"), "**/*")).each do |file|
+          path_length = File.join(CKitCLI.source_root, "templates", "chemistrykit").length + 1
           destination = File.join(destination_root, file[path_length .. -1])
           if not File.exists?(destination)
             if File.directory?(file)
