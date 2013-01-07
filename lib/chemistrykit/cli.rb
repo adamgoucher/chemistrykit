@@ -1,5 +1,5 @@
 require "thor"
-require 'chemistrykit/generate'
+require 'chemistrykit/generators'
 require 'chemistrykit/new'
 
 module ChemistryKit
