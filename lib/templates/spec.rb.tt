@@ -1,0 +1,9 @@
+module <%= config[:project] %>
+  module Specs
+    describe <%= name.capitalize %> do
+      it "should do something" do
+
+      end
+    end
+  end
+end
