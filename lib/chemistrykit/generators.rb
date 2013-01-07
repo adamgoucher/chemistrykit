@@ -17,6 +17,8 @@ module ChemistryKit
       LONGDESC
       option :project, :type => :string, :default => ''
       def spec(name)
+        require 'chemistrykit/config'
+        
         self.name = name
         template('templates/spec.rb.tt', "spec/#{name}.rb")
       end
