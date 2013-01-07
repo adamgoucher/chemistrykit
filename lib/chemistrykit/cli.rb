@@ -16,7 +16,9 @@ module ChemistryKit
         Runs the Chemistry kit
       LONGDESC
       def brew
-        puts 'in'
+        require 'chemistrykit/config'
+        
+        puts CHEMISTRY_CONFIG['chemistrykit']['project']
       end
 
     end
