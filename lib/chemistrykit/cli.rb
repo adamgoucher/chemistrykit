@@ -1,5 +1,6 @@
 require "thor"
 require 'chemistrykit/generators'
+require 'chemistrykit/config'
 
 module ChemistryKit
   module CLI
@@ -53,7 +54,7 @@ module ChemistryKit
         Runs the Chemistry kit
       LONGDESC
       def brew
-        puts 'in'
+        puts CHEMISTRY_CONFIG['chemistrykit']['project']
       end
     end
   end
