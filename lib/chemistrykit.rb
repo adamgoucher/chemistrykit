@@ -1,5 +1,3 @@
-$:.unshift File.dirname(__FILE__)
+require 'chemistrykit/base'
 
-module ChemistryKit
-  autoload? :Base
-end
+$:.unshift File.dirname(__FILE__)
