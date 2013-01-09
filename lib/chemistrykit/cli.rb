@@ -17,7 +17,7 @@ module ChemistryKit
       long_desc <<-LONGDESC
         Runs the Chemistry kit
       LONGDESC
-      method_option :tag, :default => ['depth:shallow'], :type => :array,
+      method_option :tag, :default => ['depth:shallow'], :type => :array
       def brew
         require 'chemistrykit/config'
         require 'chemistrykit/shared_context'
