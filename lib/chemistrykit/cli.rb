@@ -1,6 +1,6 @@
 require "thor"
-require 'chemistry_kit/generators'
-require 'chemistry_kit/new'
+require 'chemistrykit/generators'
+require 'chemistrykit/new'
 require 'rspec'
 
 module ChemistryKit
@@ -18,7 +18,7 @@ module ChemistryKit
       LONGDESC
       option :tag, :default => 'depth:shallow', :type => :array
       def brew
-        require 'chemistry_kit/config'
+        require 'chemistrykit/config'
         require "#{Dir.getwd}/spec/helpers/spec_helper"
         
         tags = {}

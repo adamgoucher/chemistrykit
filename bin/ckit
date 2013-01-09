@@ -2,6 +2,6 @@
 
 require "rubygems" # Allows for Ruby versions older than 1.9.3
 require File.expand_path('../../lib/chemistry_kit', __FILE__)
-require 'chemistry_kit/cli'
+require 'chemistrykit/cli'
 
 ChemistryKit::CLI::CKitCLI.start
