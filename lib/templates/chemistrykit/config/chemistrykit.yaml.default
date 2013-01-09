@@ -2,3 +2,9 @@
 chemistrykit: {
   project: YourProjectName
 }
+
+webdriver: {
+  browser: firefox,
+  server_host: localhost,
+  server_port: 4444
+}

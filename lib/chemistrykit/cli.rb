@@ -19,6 +19,7 @@ module ChemistryKit
       option :tag, :default => 'depth:shallow', :type => :array
       def brew
         require 'chemistrykit/config'
+        require 'chemistrykit/shared_context'
         require "#{Dir.getwd}/spec/helpers/spec_helper"
         
         tags = {}
@@ -37,6 +38,7 @@ module ChemistryKit
         RSpec.configure do |c|
           c.filter_run tags[:filter] unless tags[:filter].nil?
           c.filter_run_excluding tags[:exclusion_filter] unless tags[:exclusion_filter].nil?
+          c.include ChemistryKit::SharedContext
         end
         RSpec::Core::Runner.run(Dir.glob(File.join(Dir.getwd, 'spec', '**/*_spec.rb')))
       end
