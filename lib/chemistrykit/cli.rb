@@ -17,12 +17,12 @@ module ChemistryKit
       long_desc <<-LONGDESC
         Runs the Chemistry kit
       LONGDESC
-      option :tag, :default => 'depth:shallow', :type => :array
+      method_option :tag, :default => ['depth:shallow'], :type => :array,
       def brew
         require 'chemistrykit/config'
         require 'chemistrykit/shared_context'
         require "#{Dir.getwd}/spec/helpers/spec_helper"
-        
+
         tags = {}
         options['tag'].each do |tag|
           filter_type = tag.start_with?('~') ? :exclusion_filter : :filter
