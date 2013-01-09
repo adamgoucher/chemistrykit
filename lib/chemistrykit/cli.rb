@@ -2,6 +2,7 @@ require "thor"
 require 'chemistrykit/generators'
 require 'chemistrykit/new'
 require 'rspec'
+require 'ci/reporter/rake/rspec_loader'
 
 module ChemistryKit
   module CLI
