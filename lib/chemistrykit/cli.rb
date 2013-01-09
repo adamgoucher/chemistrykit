@@ -39,6 +39,7 @@ module ChemistryKit
           c.filter_run tags[:filter] unless tags[:filter].nil?
           c.filter_run_excluding tags[:exclusion_filter] unless tags[:exclusion_filter].nil?
           c.include ChemistryKit::SharedContext
+          c.order = 'random'
         end
         RSpec::Core::Runner.run(Dir.glob(File.join(Dir.getwd, 'spec', '**/*_spec.rb')))
       end
