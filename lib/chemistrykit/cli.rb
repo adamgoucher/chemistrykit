@@ -48,7 +48,8 @@ module ChemistryKit
           c.include ChemistryKit::SharedContext
           c.order = 'random'
         end
-        RSpec::Core::Runner.run(Dir.glob(File.join(Dir.getwd, 'spec', '**/*_spec.rb')))
+        
+        exit_code = RSpec::Core::Runner.run(Dir.glob(File.join(Dir.getwd, 'spec', '**/*_spec.rb')))
 
         if RUBY_PLATFORM.downcase.include?("mswin")
           require 'win32/dir'
@@ -63,6 +64,7 @@ module ChemistryKit
           end
           File.symlink(File.join(Dir.getwd, 'logs', log_timestamp), File.join(Dir.getwd, 'logs', 'latest'))
         end
+        exit_code
       end
     end
   end
