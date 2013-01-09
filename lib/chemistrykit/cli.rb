@@ -2,6 +2,7 @@ require "thor"
 require 'chemistrykit/generators'
 require 'chemistrykit/new'
 require 'rspec'
+require 'ci/reporter/rake/rspec_loader'
 
 module ChemistryKit
   module CLI
@@ -35,6 +36,12 @@ module ChemistryKit
           tags[filter_type][name] = value
         end
 
+        log_timestamp = Time.now.strftime("%Y-%m-%d-%H-%M-%S")
+        FileUtils.makedirs(File.join(Dir.getwd, 'logs', log_timestamp))
+        
+        ENV['CI_REPORTS'] = File.join(Dir.getwd, 'logs', log_timestamp)
+        ENV['CI_CAPTURE'] = CHEMISTRY_CONFIG['chemistrykit']['capture_output'] ? 'on' : 'off'
+
         RSpec.configure do |c|
           c.filter_run tags[:filter] unless tags[:filter].nil?
           c.filter_run_excluding tags[:exclusion_filter] unless tags[:exclusion_filter].nil?
@@ -42,6 +49,20 @@ module ChemistryKit
           c.order = 'random'
         end
         RSpec::Core::Runner.run(Dir.glob(File.join(Dir.getwd, 'spec', '**/*_spec.rb')))
+
+        if RUBY_PLATFORM.downcase.include?("mswin")
+          require 'win32/dir'
+
+          if Dir.junction?(File.join(Dir.getwd, 'logs', 'latest'))
+            File.delete(File.join(Dir.getwd, 'logs', 'latest'))
+          end
+          Dir.create_junction(File.join(Dir.getwd, 'logs', 'latest'), File.join(Dir.getwd, 'logs', log_timestamp))
+        else
+          if File.symlink?(File.join(Dir.getwd, 'logs', 'latest'))
+            File.delete(File.join(Dir.getwd, 'logs', 'latest'))
+          end
+          File.symlink(File.join(Dir.getwd, 'logs', log_timestamp), File.join(Dir.getwd, 'logs', 'latest'))
+        end
       end
     end
   end
