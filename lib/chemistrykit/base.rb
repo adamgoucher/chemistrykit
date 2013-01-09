@@ -1,4 +1,4 @@
-require 'chemistry_kit/master_page_object'
+require 'chemistrykit/master_page_object'
 
 module ChemistryKit
   class Base
