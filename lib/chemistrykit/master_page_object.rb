@@ -2,9 +2,13 @@ require "selenium-webdriver"
 require "rspec"
 
 module ChemistryKit
-  class MasterPageObject
+  module MasterPageObject
 
-    def initialize(driver)
+    def initialize # why was I passing driver here? (driver)
+      driver
+    end
+
+    def driver
       # browser type should be configurable form userland
       @driver = Selenium::Webdriver.for :firefox
       # 'implicit_wait' should be configurable from userland

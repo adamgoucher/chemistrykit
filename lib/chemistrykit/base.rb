@@ -1,7 +1,7 @@
 require 'chemistrykit/master_page_object'
 
 module ChemistryKit
-  class Base
+  module Base
     include MasterPageObject
   end
 end
