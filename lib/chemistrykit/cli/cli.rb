@@ -38,7 +38,7 @@ module ChemistryKit
 
         log_timestamp = Time.now.strftime("%Y-%m-%d-%H-%M-%S")
         FileUtils.makedirs(File.join(Dir.getwd, 'logs', log_timestamp))
-        
+
         ENV['CI_REPORTS'] = File.join(Dir.getwd, 'logs', log_timestamp)
         ENV['CI_CAPTURE'] = CHEMISTRY_CONFIG['chemistrykit']['capture_output'] ? 'on' : 'off'
 
@@ -48,7 +48,7 @@ module ChemistryKit
           c.include ChemistryKit::SharedContext
           c.order = 'random'
         end
-        
+
         exit_code = RSpec::Core::Runner.run(Dir.glob(File.join(Dir.getwd, 'spec', '**/*_spec.rb')))
 
         if RUBY_PLATFORM.downcase.include?("mswin")
