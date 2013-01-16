@@ -21,8 +21,4 @@ Gem::Specification.new do |s|
   s.add_development_dependency "cucumber", "~> 1.2.1"
   s.add_development_dependency "aruba", "~> 0.5.1"
 
-  # # A user on a Windows platform is notified that they need to install the following gems manually.
-  # platforms :mswin do
-  #   s.add_dependency "win32-file", "~> 0.6.8"
-  # end
 end
