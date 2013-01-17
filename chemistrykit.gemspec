@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.summary        = "Automation framework for Selenium in Ruby"
   s.description    = File.read(File.join(File.dirname(__FILE__), 'README.md'))
 
-  s.files          = Dir["{bin,lib,spec}/**/*"] + %w(LICENSE README.md)
+  s.files          = Dir.glob("{bin,lib}/**/*", File::FNM_DOTMATCH) + %w(LICENSE README.md)
   s.executables    = [ 'ckit' ]
 
   s.required_ruby_version = '>=1.9'
