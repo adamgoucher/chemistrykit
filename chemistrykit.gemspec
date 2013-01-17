@@ -20,5 +20,11 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rspec", "~> 2.12.0"
   s.add_development_dependency "cucumber", "~> 1.2.1"
   s.add_development_dependency "aruba", "~> 0.5.1"
+  s.add_development_dependency "rake", "~> 10.0.3"
+
+  # TODO: Really need a solution for this. Notify a Window's user to install these gems manually
+  # platforms :mswin do
+  #   "win32-file" # , "~> 0.6.8"
+  # end
 
 end
