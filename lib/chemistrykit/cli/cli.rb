@@ -1,6 +1,6 @@
 require "thor"
-require 'chemistrykit/generators'
-require 'chemistrykit/new'
+require 'chemistrykit/cli/generators'
+require 'chemistrykit/cli/new'
 require 'rspec'
 
 module ChemistryKit
