@@ -2,7 +2,6 @@ require "thor"
 require 'chemistrykit/generators'
 require 'chemistrykit/new'
 require 'rspec'
-require 'ci/reporter/rake/rspec_loader'
 
 module ChemistryKit
   module CLI
@@ -17,12 +16,13 @@ module ChemistryKit
       long_desc <<-LONGDESC
         Runs the Chemistry kit
       LONGDESC
-      option :tag, :default => 'depth:shallow', :type => :array
+      method_option :tag, :default => ['depth:shallow'], :type => :array
       def brew
         require 'chemistrykit/config'
         require 'chemistrykit/shared_context'
         require "#{Dir.getwd}/spec/helpers/spec_helper"
-        
+        require 'ci/reporter/rake/rspec_loader'
+
         tags = {}
         options['tag'].each do |tag|
           filter_type = tag.start_with?('~') ? :exclusion_filter : :filter
@@ -38,7 +38,7 @@ module ChemistryKit
 
         log_timestamp = Time.now.strftime("%Y-%m-%d-%H-%M-%S")
         FileUtils.makedirs(File.join(Dir.getwd, 'logs', log_timestamp))
-        
+
         ENV['CI_REPORTS'] = File.join(Dir.getwd, 'logs', log_timestamp)
         ENV['CI_CAPTURE'] = CHEMISTRY_CONFIG['chemistrykit']['capture_output'] ? 'on' : 'off'
 
@@ -48,7 +48,7 @@ module ChemistryKit
           c.include ChemistryKit::SharedContext
           c.order = 'random'
         end
-        
+
         exit_code = RSpec::Core::Runner.run(Dir.glob(File.join(Dir.getwd, 'spec', '**/*_spec.rb')))
 
         if RUBY_PLATFORM.downcase.include?("mswin")

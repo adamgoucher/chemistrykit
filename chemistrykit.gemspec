@@ -15,4 +15,10 @@ Gem::Specification.new do |s|
   s.add_dependency "thor", "~> 0.16.0"
   s.add_dependency "rspec", "~> 2.12.0"
   s.add_dependency "selenium-webdriver", "~> 2.27.2"
+  s.add_dependency "ci_reporter", "~> 1.8.3"
+
+  # # A user on a Windows platform is notified that they need to install the following gems manually.
+  # platforms :mswin do
+  #   s.add_dependency "win32-file", "~> 0.6.8"
+  # end
 end
