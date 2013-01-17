@@ -5,9 +5,9 @@ Gem::Specification.new do |s|
   s.email          = ["dave@arrgyle.com", "jason@arrgyle.com"]
   s.homepage       = "https://github.com/arrgyle/chemistrykit"
   s.summary        = "Automation framework for Selenium in Ruby"
-  s.description    = File.read(File.join(File.dirname(__FILE__), 'README'))
+  s.description    = File.read(File.join(File.dirname(__FILE__), 'README.md'))
 
-  s.files          = Dir["{bin,lib,spec}/**/*"] + %w(LICENSE README)
+  s.files          = Dir["{bin,lib,spec}/**/*"] + %w(LICENSE README.md)
   s.executables    = [ 'ckit' ]
 
   s.required_ruby_version = '>=1.9'
