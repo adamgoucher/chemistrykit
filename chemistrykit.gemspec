@@ -1,6 +1,7 @@
 Gem::Specification.new do |s|
   s.name           = "chemistrykit"
   s.version        = "0.0.1"
+  s.platform       = Gem::Platform::RUBY
   s.author         = ["Dave Haeffner", "Jason Wieringa"]
   s.email          = ["dave@arrgyle.com", "jason@arrgyle.com"]
   s.homepage       = "https://github.com/arrgyle/chemistrykit"
@@ -22,9 +23,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "aruba", "~> 0.5.1"
   s.add_development_dependency "rake", "~> 10.0.3"
 
-  # TODO: Really need a solution for this. Notify a Window's user to install these gems manually
-  # platforms :mswin do
-  #   "win32-file" # , "~> 0.6.8"
-  # end
 
 end
