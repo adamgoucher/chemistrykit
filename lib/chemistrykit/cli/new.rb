@@ -8,7 +8,7 @@ module ChemistryKit
       argument :name
 
       def self.source_root
-        File.join(File.dirname(__FILE__), '..')
+        File.join(File.dirname(__FILE__), '..', '..')
       end
 
       def set_destination_root
@@ -21,7 +21,8 @@ module ChemistryKit
       end
 
       def copy_templates
-        Dir.glob(File.join(File.join(New.source_root, "templates", "chemistrykit"), "**/*")).each do |file|
+        files = Dir.glob(File.join(File.join(New.source_root, "templates", "chemistrykit"), "**/*"), File::FNM_DOTMATCH)
+        files.each do |file|
           path_length = File.join(New.source_root, "templates", "chemistrykit").length + 1
           destination = File.join(@destination_root, file[path_length .. -1])
           if not File.exists?(destination)

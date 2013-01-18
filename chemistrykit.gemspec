@@ -29,4 +29,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "cucumber", "~> 1.2.1"
   s.add_development_dependency "aruba", "~> 0.5.1"
   s.add_development_dependency "rake", "~> 10.0.3"
+
+  s.extensions = 'ext/mkrf_conf.rb'
 end
