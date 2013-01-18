@@ -1,3 +1,1 @@
-require 'chemistrykit/base'
-
-$:.unshift File.dirname(__FILE__)
+require 'chemistrykit/version'

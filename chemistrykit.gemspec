@@ -1,6 +1,9 @@
+# -*- encoding: utf-8 -*-
+require 'chemistrykit/version'
+
 Gem::Specification.new do |s|
   s.name           = "chemistrykit"
-  s.version        = "0.0.1"
+  s.version        = ChemistryKit::VERSION
   s.platform       = Gem::Platform::RUBY
   s.author         = ["Dave Haeffner", "Jason Wieringa"]
   s.email          = ["dave@arrgyle.com", "jason@arrgyle.com"]
