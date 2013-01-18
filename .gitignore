@@ -4,6 +4,7 @@
 pkg/*
 tags
 test/tmp/
+Gemfile.lock
 
 # Installed gems
 vendor/bundle
