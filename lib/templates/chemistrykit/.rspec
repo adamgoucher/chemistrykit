@@ -1,1 +1,4 @@
 --format CI::Reporter::RSpec
+--default_path tests
+--pattern "**/*_ck.rb"
+-I objects

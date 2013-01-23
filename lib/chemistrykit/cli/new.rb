@@ -33,8 +33,8 @@ module ChemistryKit
             end
           end
         end
-        Dir.mkdir(File.join(@destination_root, 'logs'))
-        FileUtils.makedirs(File.join(destination_root, 'lib', 'pages'))
+#        Dir.mkdir(File.join(@destination_root, 'logs'))
+#        FileUtils.makedirs(File.join(destination_root, 'lib', 'pages'))
       end
     end
   end
