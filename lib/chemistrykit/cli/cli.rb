@@ -20,7 +20,6 @@ module ChemistryKit
       def brew
         require 'chemistrykit/config'
         require 'chemistrykit/shared_context'
-        require "#{Dir.getwd}/spec/helpers/spec_helper"
         require 'ci/reporter/rake/rspec_loader'
 
         tags = {}

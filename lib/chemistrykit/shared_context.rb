@@ -1,5 +1,4 @@
 require 'rspec/core/shared_context'
-# require File.join(Dir.getwd, 'lib', 'tailored', 'webdriver')
 
 module ChemistryKit
   module SharedContext
