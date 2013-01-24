@@ -18,6 +18,12 @@ module ChemistryKit
       :location
     ]
 
+    if CHEMISTRY_CONFIG['webdriver']['local_server']
+      before(:all) do
+        puts "HELLO WORLD!"
+      end
+    end
+
     before(:each) do
       capabilities = Selenium::WebDriver::Remote::Capabilities.send(CHEMISTRY_CONFIG['webdriver']['browser'])
 
@@ -30,6 +36,8 @@ module ChemistryKit
       else
         executor = 'http://' + CHEMISTRY_CONFIG['webdriver']['server_host'] + ":" + CHEMISTRY_CONFIG['webdriver']['server_port'].to_s + '/wd/hub'
       end
+      puts capabilities
+      puts executor
       @driver = ChemistryKit::PhoneHome::Driver.new(:url => executor, :desired_capabilities => capabilities)
     end
 

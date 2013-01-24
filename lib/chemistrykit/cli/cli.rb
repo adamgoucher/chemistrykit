@@ -21,6 +21,7 @@ module ChemistryKit
       def brew
         require 'chemistrykit/config'
         require 'chemistrykit/shared_context'
+        #require "#{Dir.getwd}/spec/helpers/spec_helper"
         require 'ci/reporter/rake/rspec_loader'
 
         tags = {}
@@ -49,7 +50,7 @@ module ChemistryKit
           c.order = 'random'
         end
 
-        exit_code = RSpec::Core::Runner.run(Dir.glob(File.join(Dir.getwd, 'spec', '**/*_spec.rb')))
+        exit_code = RSpec::Core::Runner.run(Dir.glob(File.join(Dir.getwd, 'tests', '**/*_beaker.rb')))
 
         if RUBY_PLATFORM.downcase.include?("mswin")
           require 'win32/dir'

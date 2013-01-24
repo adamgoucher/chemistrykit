@@ -9,6 +9,7 @@ webdriver: {
   browser: firefox,
   server_host: localhost,
   server_port: 4444
+  local_server: false
 }
 
 saucelabs: {

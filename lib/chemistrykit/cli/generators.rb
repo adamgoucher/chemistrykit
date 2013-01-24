@@ -20,7 +20,7 @@ module ChemistryKit
         require 'chemistrykit/config'
         
         self.name = name
-        template('templates/spec.rb.tt', "spec/#{name}.rb")
+        template('templates/spec.rb.tt', "tests/#{name}_beaker.rb")
       end
     end
   end
