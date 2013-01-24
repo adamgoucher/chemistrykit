@@ -6,8 +6,9 @@ require 'rspec'
 module ChemistryKit
   module CLI
     class CKitCLI < Thor
+      check_unknown_options!
 
-      default_task :brew
+      default_task :help
 
       register(ChemistryKit::CLI::Generate, 'generate', 'generate [GENERATOR] [NAME]', 'generates something')
       register(ChemistryKit::CLI::New, 'new', 'new [NAME]', 'Creates a new ChemistryKit project')
@@ -20,7 +21,6 @@ module ChemistryKit
       def brew
         require 'chemistrykit/config'
         require 'chemistrykit/shared_context'
-        require "#{Dir.getwd}/spec/helpers/spec_helper"
         require 'ci/reporter/rake/rspec_loader'
 
         tags = {}
