@@ -1,2 +1,1 @@
 --format CI::Reporter::RSpec
--I objects
