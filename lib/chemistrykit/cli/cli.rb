@@ -49,9 +49,10 @@ module ChemistryKit
           c.include ChemistryKit::SharedContext
           c.order = 'random'
           c.default_path = 'tests'
+          c.pattern = '**/*_beaker.rb'
         end
 
-        exit_code = RSpec::Core::Runner.run(Dir.glob(File.join(Dir.getwd, '**/*_beaker.rb')))
+        exit_code = RSpec::Core::Runner.run(Dir.glob(File.join(Dir.getwd)))
 
         if RUBY_PLATFORM.downcase.include?("mswin")
           require 'win32/dir'
