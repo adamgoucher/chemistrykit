@@ -50,6 +50,7 @@ module ChemistryKit
           c.order = 'random'
           c.default_path = 'tests'
           c.pattern = '**/*_beaker.rb'
+          c.libs=(objects)
         end
 
         exit_code = RSpec::Core::Runner.run(Dir.glob(File.join(Dir.getwd)))
