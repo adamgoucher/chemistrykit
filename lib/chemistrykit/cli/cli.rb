@@ -6,7 +6,13 @@ require 'rspec'
 module ChemistryKit
   module CLI
     class CKitCLI < Thor
+      # include Thor::Actions
+
       check_unknown_options!
+
+     #  def self.source_root
+     #    File.join(File.dirname(File.expand_path(__FILE__)), '../../chemistrykit/')
+     #  end
 
       default_task :help
 
@@ -48,7 +54,7 @@ module ChemistryKit
           c.filter_run_excluding tags[:exclusion_filter] unless tags[:exclusion_filter].nil?
           c.include ChemistryKit::SharedContext
           c.order = 'random'
-          c.default_path = 'scripts'
+          c.default_path = 'beakers'
           c.pattern = '**/*_beaker.rb'
           c.libs=(Dir.glob(File.join(Dir.getwd, 'objects')))
         end
