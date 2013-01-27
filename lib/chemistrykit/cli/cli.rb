@@ -6,14 +6,7 @@ require 'rspec'
 module ChemistryKit
   module CLI
     class CKitCLI < Thor
-      # include Thor::Actions
-
       check_unknown_options!
-
-     #  def self.source_root
-     #    File.join(File.dirname(File.expand_path(__FILE__)), '../../chemistrykit/')
-     #  end
-
       default_task :help
 
       register(ChemistryKit::CLI::Generate, 'generate', 'generate <object> or <beaker> [NAME]', 'generates a page object or script')
@@ -27,8 +20,10 @@ module ChemistryKit
       def brew
         require 'chemistrykit/config'
         require 'chemistrykit/shared_context'
-        #require "#{Dir.getwd}/spec/helpers/spec_helper"
         require 'ci/reporter/rake/rspec_loader'
+
+        # Wow... that feels like a hack...
+        Dir["#{Dir.getwd}/objects/*.rb"].each {|file| require file }
 
         tags = {}
         options['tag'].each do |tag|
@@ -56,7 +51,6 @@ module ChemistryKit
           c.order = 'random'
           c.default_path = 'beakers'
           c.pattern = '**/*_beaker.rb'
-          c.libs=(Dir.glob(File.join(Dir.getwd, 'objects')))
         end
 
         exit_code = RSpec::Core::Runner.run(Dir.glob(File.join(Dir.getwd)))
