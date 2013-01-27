@@ -1,0 +1,9 @@
+module PageObjects
+  class <%= name %>
+
+    def initialize(driver)
+      @driver = driver
+    end
+
+  end
+end

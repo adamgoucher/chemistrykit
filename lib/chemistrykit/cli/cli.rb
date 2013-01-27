@@ -10,7 +10,7 @@ module ChemistryKit
 
       default_task :help
 
-      register(ChemistryKit::CLI::Generate, 'generate', 'generate [GENERATOR] [NAME]', 'generates something')
+      register(ChemistryKit::CLI::Generate, 'generate', 'generate <object> or <beaker> [NAME]', 'generates a page object or script')
       register(ChemistryKit::CLI::New, 'new', 'new [NAME]', 'Creates a new ChemistryKit project')
 
       desc "brew", "Run the Chemistry kit"
@@ -48,7 +48,7 @@ module ChemistryKit
           c.filter_run_excluding tags[:exclusion_filter] unless tags[:exclusion_filter].nil?
           c.include ChemistryKit::SharedContext
           c.order = 'random'
-          c.default_path = 'tests'
+          c.default_path = 'scripts'
           c.pattern = '**/*_beaker.rb'
           c.libs=(Dir.glob(File.join(Dir.getwd, 'objects')))
         end
