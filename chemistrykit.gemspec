@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.description   = File.read(File.join(File.dirname(__FILE__), 'README.md'))
 
   s.files         = `git ls-files`.split($/)
-  s.test_files    = s.files.grep(%r{^(test|spec|features)/})
+  s.test_files    = s.files.grep(%r{^(spec|features)/})
   s.executables   = s.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
@@ -26,8 +26,6 @@ Gem::Specification.new do |s|
   s.add_dependency "ci_reporter", "~> 1.8.3"
 
   s.add_development_dependency "rspec", "~> 2.12.0"
-  s.add_development_dependency "cucumber", "~> 1.2.1"
-  s.add_development_dependency "aruba", "~> 0.5.1"
   s.add_development_dependency "rake", "~> 10.0.3"
 
   s.extensions = 'ext/mkrf_conf.rb'

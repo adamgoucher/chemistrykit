@@ -25,7 +25,8 @@ module ChemistryKit
     end
 
     before(:each) do
-      capabilities = Selenium::WebDriver::Remote::Capabilities.send(CHEMISTRY_CONFIG['webdriver']['browser'])
+      #capabilities = Selenium::WebDriver::Remote::Capabilities.send(CHEMISTRY_CONFIG['webdriver']['browser'])
+      capabilities = Selenium::WebDriver.for(CHEMISTRY_CONFIG['webdriver']['browser'])
 
       if CHEMISTRY_CONFIG['saucelabs']['ondemand']
         executor = "http://#{SAUCE_CONFIG['username']}:#{SAUCE_CONFIG['key']}@ondemand.saucelabs.com:80/wd/hub"
