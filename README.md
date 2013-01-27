@@ -1,7 +1,9 @@
 [![Gem Version](https://badge.fury.io/rb/chemistrykit.png)](http://badge.fury.io/rb/chemistrykit)
 
-ChemistryKit - An Automation Framework for Selenium in Ruby.
+ChemistryKit
 ============================================================
+
+### A simple and opinionated web testing framework for Selenium built in Ruby
 
 For a Python and PHP version, check out [py.saunter and saunter.php](https://github.com/Element-34/). ChemistryKit's inspiration comes from Saunter.
 
