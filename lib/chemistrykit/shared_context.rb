@@ -5,41 +5,39 @@ module ChemistryKit
   module SharedContext
     extend RSpec::Core::SharedContext
 
-    MAGIC_KEYS = [
-      :caller,
-      :description,
-      :description_args,
-      :example_group,
-      :example_group_block,
-      :execution_result,
-      :file_path,
-      :full_description,
-      :line_number,
-      :location
-    ]
-
-    if CHEMISTRY_CONFIG['webdriver']['local_server']
-      before(:all) do
-        puts "HELLO WORLD!"
-      end
-    end
-
     before(:each) do
-      #capabilities = Selenium::WebDriver::Remote::Capabilities.send(CHEMISTRY_CONFIG['webdriver']['browser'])
-      capabilities = Selenium::WebDriver.for(CHEMISTRY_CONFIG['webdriver']['browser'])
-
-      if CHEMISTRY_CONFIG['saucelabs']['ondemand']
-        executor = "http://#{SAUCE_CONFIG['username']}:#{SAUCE_CONFIG['key']}@ondemand.saucelabs.com:80/wd/hub"
-        if CHEMISTRY_CONFIG['webdriver']['browser'] != 'chrome'
-          capabilities[:version] = CHEMISTRY_CONFIG['saucelabs']['version']
-        end
-        capabilities[:platform] = CHEMISTRY_CONFIG['saucelabs']['platform']
-      else
+#      if CHEMISTRY_CONFIG['webdriver']['local_server']
+#        capabilities = Selenium::WebDriver.for(CHEMISTRY_CONFIG['webdriver']['browser'].to_sym)
+#      else
+        capabilities = Selenium::WebDriver::Remote::Capabilities.send(CHEMISTRY_CONFIG['webdriver']['browser'])
+#      end
+#
+#      if CHEMISTRY_CONFIG['saucelabs']['ondemand']
+#        MAGIC_KEYS = [
+#          :caller,
+#          :description,
+#          :description_args,
+#          :example_group,
+#          :example_group_block,
+#          :execution_result,
+#          :file_path,
+#          :full_description,
+#          :line_number,
+#          :location
+#        ]
+#        executor = "http://#{SAUCE_CONFIG['username']}:#{SAUCE_CONFIG['key']}@ondemand.saucelabs.com:80/wd/hub"
+#        if CHEMISTRY_CONFIG['webdriver']['browser'] != 'chrome'
+#          capabilities[:version] = CHEMISTRY_CONFIG['saucelabs']['version']
+#        end
+#        capabilities[:platform] = CHEMISTRY_CONFIG['saucelabs']['platform']
+#      else
         executor = 'http://' + CHEMISTRY_CONFIG['webdriver']['server_host'] + ":" + CHEMISTRY_CONFIG['webdriver']['server_port'].to_s + '/wd/hub'
-      end
-      puts capabilities
-      puts executor
-      @driver = ChemistryKit::PhoneHome::Driver.new(:url => executor, :desired_capabilities => capabilities)
+#      end
+
+#      @driver = ChemistryKit::PhoneHome::Driver.new(:url => executor, :desired_capabilities => capabilities)
+      @driver = ChemistryKit::WebDriver::Driver.new(:url => executor, :desired_capabilities => capabilities)
+      puts @driver.inspect
+      puts @driver.object_id
     end
 
     after(:each) do
