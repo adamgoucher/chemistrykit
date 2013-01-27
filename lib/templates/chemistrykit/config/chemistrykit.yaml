@@ -1,14 +1,14 @@
 ---
 chemistrykit: {
   project: YourProjectName,
-  capture_output: false
+  capture_output: false,
+  run_locally: true
 }
 
 webdriver: {
   browser: firefox,
   server_host: localhost,
-  server_port: 4444,
-  local_server: true
+  server_port: 4444
 }
 
 saucelabs: {
