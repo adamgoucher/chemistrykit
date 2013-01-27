@@ -10,7 +10,7 @@ module ChemistryKit
 
       default_task :help
 
-      register(ChemistryKit::CLI::Generate, 'generate', 'generate [GENERATOR] [NAME]', 'generates something')
+      register(ChemistryKit::CLI::Generate, 'generate', 'generate <object> or <beaker> [NAME]', 'generates a page object or script')
       register(ChemistryKit::CLI::New, 'new', 'new [NAME]', 'Creates a new ChemistryKit project')
 
       desc "brew", "Run the Chemistry kit"

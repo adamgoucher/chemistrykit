@@ -1,0 +1,12 @@
+describe "<%= name %>", :depth => 'shallow' do
+  include PageObjects:: INSERT PAGE OBJECT
+
+  before(:each) do
+    @<%= name %> = PageObjects:: INSERT PAGE OBJECT .new(@driver)
+  end
+
+  it "opens googles brain" do
+    @<%= name %>.open("www.google.com")
+  end
+
+end
