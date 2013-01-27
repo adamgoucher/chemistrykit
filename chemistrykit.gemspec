@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.description   = File.read(File.join(File.dirname(__FILE__), 'README.md'))
 
   s.files         = `git ls-files`.split($/)
-  s.test_files    = s.files.grep(%r{^(spec|features)/})
+  s.test_files    = s.files.grep(%r{^(scripts|spec|features)/})
   s.executables   = s.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
