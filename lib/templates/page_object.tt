@@ -1,5 +1,5 @@
 module PageObjects
-  class <%= name %>
+  class <%= name.capitalize %>
 
     def initialize(driver)
       @driver = driver

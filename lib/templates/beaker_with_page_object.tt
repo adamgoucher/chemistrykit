@@ -1,0 +1,7 @@
+describe "<%= name.capitalize %>", :depth => 'shallow' do
+
+  before(:each) do
+    @<%= name %> = PageObjects::<%= name.capitalize %>.new(@driver)
+  end
+
+end
