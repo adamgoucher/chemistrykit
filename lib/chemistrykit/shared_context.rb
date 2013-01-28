@@ -6,9 +6,9 @@ module ChemistryKit
     extend RSpec::Core::SharedContext
 
     before(:each) do
-      if CHEMISTRY_CONFIG['chemistrykit']['run_locally']
-        @driver = Selenium::WebDriver.for(CHEMISTRY_CONFIG['webdriver']['browser'].to_sym)
-      else
+#       if CHEMISTRY_CONFIG['chemistrykit']['run_locally']
+#         @driver = Selenium::WebDriver.for(CHEMISTRY_CONFIG['webdriver']['browser'].to_sym)
+#       else
         capabilities = Selenium::WebDriver::Remote::Capabilities.send(CHEMISTRY_CONFIG['webdriver']['browser'])
 
         if CHEMISTRY_CONFIG['saucelabs']['ondemand']
@@ -35,7 +35,7 @@ module ChemistryKit
 
         @driver = ChemistryKit::WebDriver::Driver.new(:url => executor, :desired_capabilities => capabilities)
       end
-    end
+#    end
 
     after(:each) do
       if CHEMISTRY_CONFIG['saucelabs']['ondemand']
