@@ -11,7 +11,7 @@ module ChemistryKit
       end
 
       def create_lib_file
-        template('beaker.tt', "./tests/#{name}_beaker.rb")
+        template('beaker.tt', "./beakers/#{name}_beaker.rb")
       end
 
     end
