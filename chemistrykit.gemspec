@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.name          = "chemistrykit"
   s.version       = ChemistryKit::VERSION
   s.platform      = Gem::Platform::RUBY
-  s.author        = ["Dave Haeffner", "Jason Wieringa"]
+  s.authors       = ["Dave Haeffner", "Jason Wieringa"]
   s.email         = ["dave@arrgyle.com", "jason@arrgyle.com"]
   s.homepage      = "https://github.com/arrgyle/chemistrykit"
   s.summary       = "Automation framework for Selenium in Ruby"
