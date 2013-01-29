@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.homepage      = "https://github.com/arrgyle/chemistrykit"
   s.summary       = "Automation framework for Selenium in Ruby"
   s.description   = File.read(File.join(File.dirname(__FILE__), 'README.md'))
+  s.license       = 'MIT'
 
   s.files         = `git ls-files`.split($/)
   s.test_files    = s.files.grep(%r{^(scripts|spec|features)/})
