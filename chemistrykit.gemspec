@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "thor", "~> 0.16.0"
   s.add_dependency "rspec", "~> 2.12.0"
-  s.add_dependency "selenium-webdriver", "~> 2.27.2"
+  s.add_dependency "selenium-webdriver", "~> 2.29.0"
   s.add_dependency "ci_reporter", "~> 1.8.3"
   s.add_dependency "rest-client", "~> 1.6.7"
 
