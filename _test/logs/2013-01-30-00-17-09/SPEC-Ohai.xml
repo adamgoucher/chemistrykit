@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Ohai" tests="1" time="6.239754" failures="0" errors="1" skipped="0">
+  <testcase name="Ohai blah" time="6.237471">
+    <failure type="NameError" message="uninitialized constant PageObjects">
+uninitialized constant PageObjects (NameError)
+NameError:
+uninitialized constant PageObjects
+     ./beakers/ohai_beaker.rb:4:in `block (2 levels) in &lt;top (required)&gt;'
+     /Users/more/Dropbox/_dev/Arrgyle/chemistrykit/lib/chemistrykit/cli/cli.rb:56:in `brew'    </failure>
+  </testcase>
+  <system-out>
+  </system-out>
+  <system-err>
+  </system-err>
+</testsuite>

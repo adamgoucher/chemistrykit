@@ -1,0 +1,18 @@
+---
+chemistrykit: {
+  project: _test,
+  capture_output: false,
+  run_locally: true
+}
+
+webdriver: {
+  browser: firefox,
+  server_host: localhost,
+  server_port: 4444
+}
+
+saucelabs: {
+    ondemand: false,
+    version: 18,
+    platform: Windows 2008
+}
