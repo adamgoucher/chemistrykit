@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Ohai" tests="1" time="7.090409" failures="0" errors="0" skipped="0">
-  <testcase name="Ohai blah" time="7.089846">
-  </testcase>
-  <system-out>
-  </system-out>
-  <system-err>
-  </system-err>
-</testsuite>
