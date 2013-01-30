@@ -1,6 +1,6 @@
 ---
 chemistrykit: {
-  project: <%= name.capitalize %>
+  project: <%= name.capitalize %>,
   capture_output: false,
   run_locally: true
 }
@@ -8,7 +8,7 @@ chemistrykit: {
 webdriver: {
   browser: firefox,
   server_host: localhost,
-  server_port: 4444,
+  server_port: 4444
 }
 
 saucelabs: {
