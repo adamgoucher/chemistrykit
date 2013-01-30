@@ -1,5 +1,6 @@
 require 'rspec/core/shared_context'
 require File.join(Dir.getwd, '_config', 'requires')
+require 'restclient'
 
 module ChemistryKit
   module SharedContext
@@ -78,13 +79,15 @@ module ChemistryKit
           end
         }
         example_tags.compact!
-        puts self.example.exception
+        # puts self.example.exception
         payload = {
           :tags => example_tags,
           :name => self.example.metadata[:full_description],
           :passed => self.example.exception ? false : true
         }
-        puts payload.to_json
+        api_url = "http://#{SAUCE_CONFIG['username']}:#{SAUCE_CONFIG['key']}@saucelabs.com:80/rest/v1/#{SAUCE_CONFIG['username']}/jobs/#{session_id}"
+        RestClient.put api_url, payload.to_json, {:content_type => :json}
+        # puts payload.to_json
       end
     end
   end
