@@ -1,6 +1,6 @@
 ---
 chemistrykit: {
-  project: YourProjectName,
+  project: <%= name.capitalize %>
   capture_output: false,
   run_locally: true
 }
