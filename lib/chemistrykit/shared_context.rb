@@ -1,5 +1,5 @@
 require 'rspec/core/shared_context'
-require File.join(Dir.getwd, 'config', 'requires')
+require File.join(Dir.getwd, '_config', 'requires')
 
 module ChemistryKit
   module SharedContext

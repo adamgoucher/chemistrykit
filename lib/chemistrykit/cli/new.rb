@@ -22,7 +22,7 @@ module ChemistryKit
       end
 
       def notify
-        say "Your project name has been added to config/chemistrykit.yaml"
+        say "Your project name has been added to _config/chemistrykit.yaml"
       end
 
     end

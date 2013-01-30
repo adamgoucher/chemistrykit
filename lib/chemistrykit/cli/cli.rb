@@ -9,7 +9,7 @@ module ChemistryKit
       check_unknown_options!
       default_task :help
 
-      register(ChemistryKit::CLI::Generate, 'generate', 'generate <object> or <beaker> [NAME]', 'generates a page object or script')
+      register(ChemistryKit::CLI::Generate, 'generate', 'generate <formula> or <beaker> [NAME]', 'generates a page object or script')
       register(ChemistryKit::CLI::New, 'new', 'new [NAME]', 'Creates a new ChemistryKit project')
 
       desc "brew", "Run the Chemistry kit"
@@ -23,7 +23,7 @@ module ChemistryKit
         require 'ci/reporter/rake/rspec_loader'
 
         # Wow... that feels like a hack...
-        Dir["#{Dir.getwd}/objects/*.rb"].each {|file| require file }
+        Dir["#{Dir.getwd}/formulas/*.rb"].each {|file| require file }
 
         tags = {}
         options['tag'].each do |tag|
@@ -39,7 +39,7 @@ module ChemistryKit
         end
 
         log_timestamp = Time.now.strftime("%Y-%m-%d-%H-%M-%S")
-        FileUtils.makedirs(File.join(Dir.getwd, 'logs', log_timestamp))
+        FileUtils.makedirs(File.join(Dir.getwd, 'evidence', log_timestamp))
 
         ENV['CI_REPORTS'] = File.join(Dir.getwd, 'logs', log_timestamp)
         ENV['CI_CAPTURE'] = CHEMISTRY_CONFIG['chemistrykit']['capture_output'] ? 'on' : 'off'
